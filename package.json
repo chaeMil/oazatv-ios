@@ -11,8 +11,11 @@
     "react": "15.4.2",
     "react-localization": "0.0.12",
     "react-native": "0.41.2",
+    "react-native-htmlview": "^0.5.0",
     "react-native-i18n": "^1.0.0",
     "react-native-icon": "^0.2.10",
+    "react-native-material-kit": "^0.4.1",
+    "react-native-share": "^1.0.19",
     "react-native-vector-icons": "^4.0.0",
     "react-native-video": "^1.0.0",
     "react-native-video-player": "^0.6.1"

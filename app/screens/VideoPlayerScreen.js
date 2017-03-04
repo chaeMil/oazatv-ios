@@ -1,19 +1,31 @@
 import React,{Component} from 'react';
-import {Dimensions, View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {Dimensions, View, Text, ScrollView, StyleSheet, WebView, TouchableOpacity} from 'react-native'
+import {getTheme} from 'react-native-material-kit';
+import HTMLView from 'react-native-htmlview';
+import Share, {ShareSheet, Button} from 'react-native-share';
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import VideoPlayer from 'react-native-video-player';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Colors from '../styles/Colors'
-const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
+import constants from '../strings/Constants'
+import strings from '../strings/Locale'
 
-class VideoPlayerScreen extends Component {
+const theme = getTheme();
+const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
+const viewsIcon = (<Icon name="ios-eye-outline" size={30} color={Colors.primaryColor} />);
+const dateIcon = (<Icon name="ios-calendar-outline" size={30} color={Colors.primaryColor} />);
+const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primaryColor} />);
+
+        class VideoPlayerScreen extends Component {
 
     componentDidMount() {
 
     }
 
     render() {
+        let description = this.props.video.getDescription().toString();
+
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
@@ -25,7 +37,7 @@ class VideoPlayerScreen extends Component {
                         </Text>
                     </View>
                     <TouchableOpacity onPress={() => this._goBack()}
-                          style={{width: 40, height: 40, alignItems: 'center',
+                                      style={{width: 40, height: 40, alignItems: 'center',
                           justifyContent: 'center'}}>
                         {backIcon}
                     </TouchableOpacity>
@@ -37,12 +49,58 @@ class VideoPlayerScreen extends Component {
                     style={{backgroundColor: Colors.black,
                         height: Dimensions.get('window').width * 0.5625 ,
                         width: null}}/>
+                <ScrollView>
+                    <View style={{padding: 8}}>
+                        <View style={theme.cardStyle}>
+                            <View style={{padding: 8, flex: 1,
+                                flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                                <View style={{flex: 1, alignItems: 'center'}}>
+                                    {viewsIcon}
+                                    <Text style={{color: Colors.primaryColor}}>
+                                        {this.props.video.getViews()} {strings.views}
+                                    </Text>
+                                </View>
+                                <View style={{flex: 1, alignItems: 'center'}}>
+                                    {dateIcon}
+                                    <Text style={{color: Colors.primaryColor}}>
+                                        {this.props.video.getDate()}
+                                    </Text>
+                                </View>
+                                <TouchableOpacity onPress={() => this._shareVideo()}
+                                    style={{flex: 1, alignItems: 'center'}}>
+                                    {shareIcon}
+                                    <Text style={{color: Colors.primaryColor}}>
+                                        {strings.share}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={{padding: 8}}>
+                        <View style={theme.cardStyle}>
+                            <View style={{margin: 16}}>
+                                <HTMLView value={description} />
+                            </View>
+                        </View>
+                    </View>
+                </ScrollView>
             </ViewContainer>
         )
     }
 
     _goBack() {
-        this.props.navigator.jumpBack();
+        this.props.navigator.pop();
+    }
+
+    _shareVideo() {
+        let shareOptions = {
+            title: strings.shareVideoDialogTitle,
+            url: constants.videoShareLink + this.props.video.getHash(),
+            subject: this.props.video.nameCs + "｜" + this.props.video.nameEn
+        };
+
+        Share.open(shareOptions);
     }
 }
 

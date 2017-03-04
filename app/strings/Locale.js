@@ -10,7 +10,9 @@ let strings = new LocalizedStrings({
         "popularVideos": "Popular videos",
         "featured": "Featured",
         "home": "Home",
-        "archive": "Archive"
+        "archive": "Archive",
+        "share": "share",
+        "shareVideoDialogTitle": "Share video"
     }
 });
 
