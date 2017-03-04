@@ -77,6 +77,10 @@ class Video {
         return this.views;
     }
 
+    getDuration() {
+        return this.metadata.durationInSeconds;
+    }
+
     getDurationString() {
         return this.metadata.durationString;
     }
