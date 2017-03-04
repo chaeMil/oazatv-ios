@@ -49,6 +49,14 @@ class Video {
         return this.hash;
     }
 
+    getMp4File() {
+        return this.mp4File;
+    }
+
+    getMp4FileLowRes() {
+        return this.mp4FileLowRes;
+    }
+
     getName() {
         switch(LangUtils.getLocale()) {
             case "en":

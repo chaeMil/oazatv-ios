@@ -31,6 +31,7 @@ class AppNavigator extends Component {
             case "VideoPlayerScreen":
                 return (
                     <VideoPlayerScreen
+                        video={route.video}
                         {...globalNavigatorProps} />
                 );
             default:

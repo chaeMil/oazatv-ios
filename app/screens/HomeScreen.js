@@ -94,8 +94,9 @@ class HomeScreen extends Component {
             <ViewContainer>
                 <StatusBarBackground/>
                 <ListView style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
-                    stickyHeaderIndices={[]}
+                    stickyHeaderIndices={this.state.stickyHeaders}
                     enableEmptySections={true}
+                    pageSize={50}
                     dataSource={this.state.homeDataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}/>
             </ViewContainer>

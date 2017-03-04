@@ -47,6 +47,7 @@
 		92E3C3F29C2D45DBBA234815 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB152B37EDE4BAE96277A33 /* MaterialIcons.ttf */; };
 		B7DBF4E5BE784EF485598D4A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DDE9D0A79C44DCB3A5BAC8 /* SimpleLineIcons.ttf */; };
 		E9517A868B834D81802E748C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DF521609D1423B8F08A10F /* FontAwesome.ttf */; };
+		F2EA338B1E6B5370009FD8D0 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EA337F1E6B4E11009FD8D0 /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,6 +320,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				F2EA338B1E6B5370009FD8D0 /* libRCTVideo.a in Frameworks */,
 				23DAA7AFE9424873970E03BE /* libRNVectorIcons.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

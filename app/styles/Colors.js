@@ -6,5 +6,6 @@ module.exports = {
     md_grey_500: "#9E9E9E",
     md_grey_600: "#757575",
     md_grey_800: "#424242",
-    appBg: "#FAFAFA"
+    appBg: "#FAFAFA",
+    black: "#000000",
 };
