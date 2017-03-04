@@ -40,6 +40,7 @@ export default class OazaApp extends Component {
                     iconName='ios-list-outline'
                     onPress={() => this.setState({selectedTab: "archive"})}>
                     <AppNavigator
+                        oazaApp={this}
                         initialRoute={{ident: "ArchiveScreen"}} />
                 </Icon.TabBarItemIOS>
 

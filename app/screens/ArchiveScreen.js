@@ -44,6 +44,10 @@ class ArchiveScreen extends Component {
         this._getArchiveData(1);
     }
 
+    componentDidMount() {
+        console.log(this.props);
+    }
+
     render() {
         return (
             <ViewContainer style={{flex: 1}}>
