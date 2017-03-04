@@ -9,13 +9,15 @@ export default class OazaApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: "home"
+            selectedTab: "home",
+            tabBarBottomMargin: 0
         }
     }
 
     render() {
         return (
             <TabBarIOS
+                style={{marginBottom: this.state.tabBarBottomMargin}}
                 translucent={false}
                 barTintColor={Colors.primaryColor}
                 tintColor={Colors.white}
@@ -28,6 +30,7 @@ export default class OazaApp extends Component {
                     iconName='ios-home-outline'
                     onPress={() => this.setState({selectedTab: "home"})}>
                     <AppNavigator
+                        oazaApp={this}
                         initialRoute={{ident: "HomeScreen"}} />
                 </Icon.TabBarItemIOS>
 

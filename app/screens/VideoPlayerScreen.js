@@ -20,7 +20,7 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
         class VideoPlayerScreen extends Component {
 
     componentDidMount() {
-
+        console.log(this.props);
     }
 
     render() {
@@ -98,7 +98,14 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
     }
 
     _goBack() {
+        this._showTabBar();
         this.props.navigator.pop();
+    }
+
+    _showTabBar() {
+          this.props.oazaApp.setState({
+            tabBarBottomMargin: 0
+        });
     }
 
     _shareVideo() {

@@ -44,10 +44,6 @@ class ArchiveScreen extends Component {
         this._getArchiveData(1);
     }
 
-    componentDidMount() {
-        console.log(this.props.appNavigator);
-    }
-
     render() {
         return (
             <ViewContainer style={{flex: 1}}>
@@ -97,7 +93,15 @@ class ArchiveScreen extends Component {
         }
     }
 
+    _hideTabBar() {
+        this.props.oazaApp.setState({
+            tabBarBottomMargin: -49
+        });
+    }
+
     _playVideo(video) {
+        this._hideTabBar();
+
         this.props.navigator.push({
             ident: "VideoPlayerScreen",
             navigationBarHidden: true,

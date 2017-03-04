@@ -15,23 +15,33 @@ class AppNavigator extends Component {
     }
 
     _renderScene(route, navigator) {
-        var globalNavigatorProps = { navigator };
+        let globalNavigatorProps = { navigator };
 
-        switch(route.ident) {
+        let ident = null;
+        if (route.initialRoute != null) {
+            ident = route.initialRoute.ident;
+        } else {
+            ident = route.ident;
+        }
+
+        switch(ident) {
             case "HomeScreen":
                 return (
                     <HomeScreen
+                        oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );
             case "ArchiveScreen":
                 return (
                     <ArchiveScreen
+                        oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );
             case "VideoPlayerScreen":
                 return (
                     <VideoPlayerScreen
                         video={route.video}
+                        oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );
             default:
@@ -44,7 +54,10 @@ class AppNavigator extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={this.props.initialRoute}
+                initialRoute={{
+                    initialRoute: this.props.initialRoute,
+                    oazaApp: this.props.oazaApp
+                }}
                 ref="appNavigator"
                 navigationBarHidden={this.props.navigationBarHidden}
                 style={styles.navigatorStyles}
