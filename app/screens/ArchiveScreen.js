@@ -108,6 +108,7 @@ class ArchiveScreen extends Component {
 
         this.props.navigator.push({
             ident: "VideoPlayerScreen",
+            oazaApp: this.props.oazaApp,
             navigationBarHidden: true,
             video
         })
