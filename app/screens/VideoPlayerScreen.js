@@ -25,6 +25,19 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
 
     render() {
         let description = this.props.video.getDescription().toString();
+        let descriptionView = null;
+
+        if (description.length > 0) {
+            descriptionView = (
+                <View style={{padding: 8}}>
+                    <View style={theme.cardStyle}>
+                        <View style={{margin: 16}}>
+                            <HTMLView value={description} />
+                        </View>
+                    </View>
+                </View>
+            );
+        }
 
         return (
             <ViewContainer style={{flex: 1}}>
@@ -77,13 +90,8 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
                         </View>
                     </View>
 
-                    <View style={{padding: 8}}>
-                        <View style={theme.cardStyle}>
-                            <View style={{margin: 16}}>
-                                <HTMLView value={description} />
-                            </View>
-                        </View>
-                    </View>
+                    {descriptionView}
+
                 </ScrollView>
             </ViewContainer>
         )
