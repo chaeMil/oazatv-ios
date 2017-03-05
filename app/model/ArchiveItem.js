@@ -21,11 +21,21 @@ class Video {
     constructor(input) {
         this.id = input.id;
         this.hash = input.hash;
-        this.mp4File = input.mp4_file;
-        this.mp4FileLowRes = input.mp4_file_lowres;
-        this.mp3File = input.mp3_file;
-        this.thumbFile = input.thumb_file;
-        this.thumbFileLowRes = input.thumb_file_lowres;
+        if (input.mp4_file != null) {
+            this.mp4File = input.mp4_file;
+        }
+        if (input.mp4_file_lowres != null) {
+            this.mp4FileLowRes = input.mp4_file_lowres;
+        }
+        if (input.mp3_file != null) {
+            this.mp3File = input.mp3_file;
+        }
+        if (input.thumb_file != null) {
+            this.thumbFile = input.thumb_file;
+        }
+        if (input.thumb_file_lowres != null) {
+            this.thumbFileLowRes = input.thumb_file_lowres;
+        }
         this.subtitlesFile = input.subtitles_file;
         this.thumbColor = input.thumb_color;
         this.date = input.date;
@@ -121,6 +131,9 @@ class Video {
     }
 
     getThumbColor() {
+        if (this.thumbColor == null) {
+            return Colors.md_grey_500;
+        }
         return this.thumbColor;
     }
 
