@@ -11,6 +11,9 @@ let strings = new LocalizedStrings({
         "featured": "Featured",
         "home": "Home",
         "archive": "Archive",
+        "categories": "Categories",
+        "songbook": "Songbook",
+        "search": "Search",
         "share": "share",
         "shareVideoDialogTitle": "Share video"
     }

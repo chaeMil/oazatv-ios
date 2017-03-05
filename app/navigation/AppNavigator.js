@@ -4,6 +4,7 @@ import {Navigator, Text, StyleSheet} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import ArchiveScreen from '../screens/ArchiveScreen';
 import VideoPlayerScreen from '../screens/VideoPlayerScreen';
+import CategoriesScreen from '../screens/CategoriesScreen';
 
 class AppNavigator extends Component {
 
@@ -41,6 +42,12 @@ class AppNavigator extends Component {
                 return (
                     <VideoPlayerScreen
                         video={route.video}
+                        oazaApp={route.oazaApp}
+                        {...globalNavigatorProps} />
+                );
+            case "CategoriesScreen":
+                return (
+                    <CategoriesScreen
                         oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );

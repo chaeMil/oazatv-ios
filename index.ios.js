@@ -35,6 +35,16 @@ export default class OazaApp extends Component {
                 </Icon.TabBarItemIOS>
 
                 <Icon.TabBarItemIOS
+                    selected={this.state.selectedTab === "categories"}
+                    title={strings.categories}
+                    iconName='ios-albums-outline'
+                    onPress={() => this.setState({selectedTab: "categories"})}>
+                    <AppNavigator
+                        oazaApp={this}
+                        initialRoute={{ident: "CategoriesScreen"}} />
+                </Icon.TabBarItemIOS>
+
+                <Icon.TabBarItemIOS
                     selected={this.state.selectedTab === "archive"}
                     title={strings.archive}
                     iconName='ios-list-outline'
@@ -42,6 +52,26 @@ export default class OazaApp extends Component {
                     <AppNavigator
                         oazaApp={this}
                         initialRoute={{ident: "ArchiveScreen"}} />
+                </Icon.TabBarItemIOS>
+
+                <Icon.TabBarItemIOS
+                    selected={this.state.selectedTab === "songbook"}
+                    title={strings.songbook}
+                    iconName='ios-musical-notes-outline'
+                    onPress={() => this.setState({selectedTab: "songbook"})}>
+                    <AppNavigator
+                        oazaApp={this}
+                        initialRoute={{ident: "SongbookScreen"}} />
+                </Icon.TabBarItemIOS>
+
+                <Icon.TabBarItemIOS
+                    selected={this.state.selectedTab === "search"}
+                    title={strings.search}
+                    iconName='ios-search-outline'
+                    onPress={() => this.setState({selectedTab: "search"})}>
+                    <AppNavigator
+                        oazaApp={this}
+                        initialRoute={{ident: "SearchScreen"}} />
                 </Icon.TabBarItemIOS>
 
             </TabBarIOS>

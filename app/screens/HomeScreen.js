@@ -111,7 +111,7 @@ class HomeScreen extends Component {
                 </Text>
             </View>
         } else {
-            var archiveItem = new ArchiveItem(rowData);
+            let archiveItem = new ArchiveItem(rowData);
 
             switch (archiveItem.type) {
                 case "video":
