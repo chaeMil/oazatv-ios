@@ -4,6 +4,10 @@ import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, Acti
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
+import Colors from '../styles/Colors';
+import Icon from 'react-native-vector-icons/Ionicons'
+
+const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 
 class CategoryScreen extends Component {
     constructor(props) {
@@ -49,8 +53,20 @@ class CategoryScreen extends Component {
     render() {
         return (
             <ViewContainer style={{flex: 1}}>
-                <StatusBarBackground/>
-                <ListView style={{flex: 1, padding: 8, marginTop: 20}}
+                <StatusBarBackground style={{backgroundColor: this.props.category.getColor()}} />
+                <View style={{marginTop: 20, width: null, height: 40,
+                    backgroundColor: this.props.category.getColor()}}>
+                    <View style={{alignItems: 'center', position: 'absolute', left: 0, right: 0}}>
+                        <Text style={{color: Colors.white, height: 40, lineHeight: 40, fontSize: 16}}>
+                            {this.props.category.getName()}
+                        </Text>
+                    </View>
+                    <TouchableOpacity onPress={() => this._goBack()}
+                        style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
+                        {backIcon}
+                    </TouchableOpacity>
+                </View>
+                <ListView style={{flex: 1, padding: 8}}
                     enableEmptySections={true}
                     dataSource={this.state.categoryDataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}
@@ -94,6 +110,11 @@ class CategoryScreen extends Component {
                 return archiveItem.album.renderArchiveItem();
         }
     }
+
+    _goBack() {
+        this.props.navigator.pop();
+    }
+
 
     _hideTabBar() {
         this.props.oazaApp.setState({

@@ -50,8 +50,7 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
                         </Text>
                     </View>
                     <TouchableOpacity onPress={() => this._goBack()}
-                                      style={{width: 40, height: 40, alignItems: 'center',
-                          justifyContent: 'center'}}>
+                        style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
                         {backIcon}
                     </TouchableOpacity>
                 </View>
