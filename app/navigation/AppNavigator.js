@@ -6,6 +6,7 @@ import ArchiveScreen from '../screens/ArchiveScreen';
 import VideoPlayerScreen from '../screens/VideoPlayerScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryScreen from '../screens/CategoryScreen';
+import SongbookScreen from '../screens/SongbookScreen';
 
 class AppNavigator extends Component {
 
@@ -59,9 +60,15 @@ class AppNavigator extends Component {
                         oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );
+            case "SongbookScreen":
+                return (
+                    <SongbookScreen
+                        oazaApp={route.oazaApp}
+                        {...globalNavigatorProps} />
+                );
             default:
                 return (
-                    <Text style={{margin: 20}}>{`YO YOU MESSED SOMETHING UP ${route}`}</Text>
+                    <Text style={{margin: 20}}>{`YO YOU MESSED SOMETHING UP ${route.ident}`}</Text>
                 );
         }
     }

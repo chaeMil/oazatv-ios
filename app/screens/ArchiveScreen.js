@@ -79,7 +79,7 @@ class ArchiveScreen extends Component {
     }
 
     _renderRow(rowData) {
-        var archiveItem = new ArchiveItem(rowData);
+        let archiveItem = new ArchiveItem(rowData);
 
         switch (archiveItem.type) {
             case "video":
