@@ -27,7 +27,7 @@ class ArchiveScreen extends Component {
 
                 this.setState({
                     data: dataSource,
-                    archiveDataSource: this.state.categoryDataSource.cloneWithRows(dataSource),
+                    archiveDataSource: this.state.archiveDataSource.cloneWithRows(dataSource),
                     currentPage: page,
                 });
 
@@ -50,7 +50,7 @@ class ArchiveScreen extends Component {
                 <StatusBarBackground/>
                 <ListView style={{flex: 1, padding: 8}}
                     enableEmptySections={true}
-                    dataSource={this.state.categoryDataSource}
+                    dataSource={this.state.archiveDataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}
                     renderFooter={() => this._renderFooter()}
                     onScroll={(scroll) => this._onScroll(scroll)}
