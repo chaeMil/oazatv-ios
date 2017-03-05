@@ -15,7 +15,7 @@ class CategoryScreen extends Component {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             loading: false,
-            currentPage: 1,
+            currentPage: 0,
             perPage: 16,
             category: null,
             data: [],
@@ -24,7 +24,9 @@ class CategoryScreen extends Component {
     }
 
     _getCategoryData(categoryId, page, perPage) {
-        fetch('http://oaza.tv/api/v2/categories/?categoryId=' + categoryId + "&page=" + page + "&perPage=" + perPage)
+        let url = 'http://oaza.tv/api/v2/categories/?categoryId=' + categoryId + "&page=" + page + "&perPage=" + perPage;
+        console.log(url);
+        fetch(url)
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = this.state.data;
@@ -47,7 +49,7 @@ class CategoryScreen extends Component {
     }
 
     componentWillMount() {
-        this._getCategoryData(this.props.category.getId(), 1, this.state.perPage);
+        this._getCategoryData(this.props.category.getId(), this.state.currentPage, this.state.perPage);
     }
 
     render() {
@@ -87,7 +89,8 @@ class CategoryScreen extends Component {
                 this.setState({
                     loading: true
                 });
-                setTimeout(() => {this._getCategoryData(this.state.currentPage += 1)}, 2000);
+                setTimeout(() => {this._getCategoryData(this.props.category.getId(),
+                    this.state.currentPage += 1, this.state.perPage)}, 2000);
             }
         }
     }

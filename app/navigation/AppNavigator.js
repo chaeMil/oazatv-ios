@@ -61,7 +61,7 @@ class AppNavigator extends Component {
                 );
             default:
                 return (
-                    <Text>{`YO YOU MESSED SOMETHING UP ${route}`}</Text>
+                    <Text style={{margin: 20}}>{`YO YOU MESSED SOMETHING UP ${route}`}</Text>
                 );
         }
     }
