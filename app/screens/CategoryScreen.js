@@ -5,29 +5,31 @@ import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
 
-class ArchiveScreen extends Component {
+class CategoryScreen extends Component {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             loading: false,
             currentPage: 1,
+            perPage: 16,
+            category: null,
             data: [],
-            archiveDataSource: ds.cloneWithRows([]),
+            categoryDataSource: ds.cloneWithRows([]),
         };
     }
 
-    _getArchiveData(page) {
-        fetch('http://oaza.tv/api/v2/archive/' + page)
+    _getCategoryData(categoryId, page, perPage) {
+        fetch('http://oaza.tv/api/v2/categories/?categoryId=' + categoryId + "&page=" + page + "&perPage=" + perPage)
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = this.state.data;
-                let newDataSource = responseJson.archive;
+                let newDataSource = responseJson.categories.videos;
                 dataSource.push.apply(dataSource, newDataSource);
 
                 this.setState({
                     data: dataSource,
-                    archiveDataSource: this.state.categoryDataSource.cloneWithRows(dataSource),
+                    categoryDataSource: this.state.categoryDataSource.cloneWithRows(dataSource),
                     currentPage: page,
                 });
 
@@ -41,14 +43,14 @@ class ArchiveScreen extends Component {
     }
 
     componentWillMount() {
-        this._getArchiveData(1);
+        this._getCategoryData(this.props.category.getId(), 1, this.state.perPage);
     }
 
     render() {
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
-                <ListView style={{flex: 1, padding: 8}}
+                <ListView style={{flex: 1, padding: 8, marginTop: 20}}
                     enableEmptySections={true}
                     dataSource={this.state.categoryDataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}
@@ -69,7 +71,7 @@ class ArchiveScreen extends Component {
                 this.setState({
                     loading: true
                 });
-                setTimeout(() => {this._getArchiveData(this.state.currentPage += 1)}, 2000);
+                setTimeout(() => {this._getCategoryData(this.state.currentPage += 1)}, 2000);
             }
         }
     }
@@ -111,4 +113,4 @@ class ArchiveScreen extends Component {
     }
 }
 
-module.exports = ArchiveScreen;
+module.exports = CategoryScreen;

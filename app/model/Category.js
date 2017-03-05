@@ -35,9 +35,10 @@ class Category {
 
     renderCategoryItem() {
         return (
-            <View style={{backgroundColor: this.getColor()}}>
-                <Text style={{color: Colors.white}}>
-                    {this.getName()}
+            <View style={{backgroundColor: this.getColor(),
+                padding: 12, marginBottom: 8, borderRadius: 2}}>
+                <Text style={{color: Colors.white, fontWeight: 'bold'}}>
+                    {this.getName().toUpperCase()}
                 </Text>
             </View>
         );

@@ -58,10 +58,18 @@ class CategoriesScreen extends Component {
     _renderRow(rowData) {
         let category = new Category(rowData);
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this._openCategory(category)}>
                 {category.renderCategoryItem()}
             </TouchableOpacity>
         );
+    }
+
+    _openCategory(category) {
+        this.props.navigator.push({
+            ident: "CategoryScreen",
+            oazaApp: this.props.oazaApp,
+            category
+        })
     }
 }
 

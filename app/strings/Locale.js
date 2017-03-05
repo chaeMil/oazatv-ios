@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-localization';
 
 let strings = new LocalizedStrings({
     en: {
+        "appName": "Oáza.tv",
         "views": "views",
         "english": "english",
         "czech": "czech",

@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ArchiveScreen from '../screens/ArchiveScreen';
 import VideoPlayerScreen from '../screens/VideoPlayerScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
+import CategoryScreen from '../screens/CategoryScreen';
 
 class AppNavigator extends Component {
 
@@ -48,6 +49,13 @@ class AppNavigator extends Component {
             case "CategoriesScreen":
                 return (
                     <CategoriesScreen
+                        oazaApp={route.oazaApp}
+                        {...globalNavigatorProps} />
+                );
+            case "CategoryScreen":
+                return (
+                    <CategoryScreen
+                        category={route.category}
                         oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );
