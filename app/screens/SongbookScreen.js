@@ -108,6 +108,8 @@ class SongbookScreen extends Component {
                         <View style={theme.cardStyle}>
                             <View style={{padding: 8, flex: 1}}>
                                 <Text>{rowData.name}</Text>
+                                <Text>{rowData.tag}</Text>
+                                <Text>{rowData.author}</Text>
                             </View>
                         </View>
                     </View>

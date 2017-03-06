@@ -97,6 +97,10 @@ class Video {
         }
     }
 
+    getTags() {
+        return this.tags;
+    }
+
     getDate() {
         return this.date;
     }

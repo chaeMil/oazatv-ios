@@ -39,6 +39,11 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
             );
         }
 
+        let tags = "";
+        for (let i = 0; i < this.props.video.getTags().length; i++) {
+            tags += "#" + this.props.video.getTags()[i] + " ";
+        }
+
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
@@ -64,7 +69,7 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
                 <ScrollView>
                     <View style={{padding: 8}}>
                         <View style={theme.cardStyle}>
-                            <View style={{padding: 8, flex: 1,
+                            <View style={{padding: 16, flex: 1,
                                 flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
                                 <View style={{flex: 1, alignItems: 'center'}}>
                                     {viewsIcon}
@@ -85,6 +90,16 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
                                         {strings.share}
                                     </Text>
                                 </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={{padding: 8}}>
+                        <View style={theme.cardStyle}>
+                            <View style={{padding: 16, flex: 1}}>
+                                <Text style={{fontWeight: 'bold'}}>
+                                    {tags}
+                                </Text>
                             </View>
                         </View>
                     </View>
