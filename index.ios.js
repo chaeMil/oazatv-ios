@@ -79,4 +79,4 @@ export default class OazaApp extends Component {
     }
 }
 
-AppRegistry.registerComponent('oazatv_react', () => OazaApp);
+AppRegistry.registerComponent('oazatv', () => OazaApp);
