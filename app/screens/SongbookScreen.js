@@ -4,6 +4,7 @@ import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, Acti
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import {getTheme} from 'react-native-material-kit';
+import Colors from '../styles/Colors';
 
 const theme = getTheme();
 
@@ -93,8 +94,9 @@ class SongbookScreen extends Component {
     _renderRow(rowData) {
         if (rowData.type == "section") {
             return (
-                <View>
-                    <Text>
+                <View style={{flex: 1, marginTop: 10, marginBottom: 4}}>
+                    <Text style={{textAlign: 'center', color: Colors.primaryColor,
+                        fontSize: 40, fontWeight: '200'}}>
                         {rowData.tag}
                     </Text>
                 </View>
@@ -106,10 +108,14 @@ class SongbookScreen extends Component {
                 <TouchableOpacity>
                     <View style={{padding: 8}}>
                         <View style={theme.cardStyle}>
-                            <View style={{padding: 8, flex: 1}}>
-                                <Text>{rowData.name}</Text>
-                                <Text>{rowData.tag}</Text>
-                                <Text>{rowData.author}</Text>
+                            <View style={{padding: 16, flex: 1, flexDirection: 'row'}}>
+                                <Text style={{fontSize: 30, fontWeight: '200', color: Colors.md_grey_600}}>
+                                    {rowData.tag}
+                                </Text>
+                                <View style={{paddingLeft: 16, paddingRight: 8}}>
+                                    <Text>{rowData.name}</Text>
+                                    <Text>{rowData.author}</Text>
+                                </View>
                             </View>
                         </View>
                     </View>
