@@ -1,4 +1,4 @@
-import LocalizedStrings from 'react-localization';
+import LocalizedStrings from 'react-native-localization';
 
 let strings = new LocalizedStrings({
     en: {
@@ -17,6 +17,23 @@ let strings = new LocalizedStrings({
         "search": "Search",
         "share": "share",
         "shareVideoDialogTitle": "Share video"
+    },
+    cs: {
+        "appName": "Oáza.tv",
+        "views": "zhlédnutí",
+        "english": "anglicky",
+        "czech": "česky",
+        "newestVideos": "Nejnovější videa",
+        "newestAlbums": "Nejnovější alba",
+        "popularVideos": "Populární videa",
+        "featured": "Vybráno",
+        "home": "Domů",
+        "archive": "Archiv",
+        "categories": "Kategorie",
+        "songbook": "Zpěvník",
+        "search": "Vyhledávání",
+        "share": "sdílet",
+        "shareVideoDialogTitle": "Sdílet video"
     }
 });
 
