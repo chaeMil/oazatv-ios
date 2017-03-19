@@ -6,6 +6,7 @@ import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
+import Constants from '../strings/Constants';
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 
@@ -24,8 +25,11 @@ class CategoryScreen extends Component {
     }
 
     _getCategoryData(categoryId, page, perPage) {
-        let url = 'http://oaza.tv/api/v2/categories/?categoryId=' + categoryId + "&page=" + page + "&perPage=" + perPage;
-        console.log(url);
+        let url = Constants.server + Constants.api +
+            '/categories/?categoryId=' + categoryId +
+            "&page=" + page +
+            "&perPage=" + perPage;
+
         fetch(url)
             .then((response) => response.json())
             .then((responseJson) => {

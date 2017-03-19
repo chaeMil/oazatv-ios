@@ -6,6 +6,7 @@ import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
+import Constants from '../strings/Constants';
 
 let homeData = [];
 
@@ -24,7 +25,7 @@ class HomeScreen extends Component {
     }
 
     _getHomeData() {
-        fetch('http://oaza.tv/api/v2/?appVersionCode=ios-alpha')
+        fetch(Constants.server + Constants.api + '?appVersionCode=ios-alpha')
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = [];
@@ -93,6 +94,8 @@ class HomeScreen extends Component {
         return (
             <ViewContainer>
                 <StatusBarBackground/>
+                <ActivityIndicator
+                    style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
                 <ListView style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
                     stickyHeaderIndices={this.state.stickyHeaders}
                     enableEmptySections={true}

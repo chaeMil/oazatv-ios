@@ -5,6 +5,7 @@ import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import {getTheme} from 'react-native-material-kit';
 import Colors from '../styles/Colors';
+import Constants from '../strings/Constants';
 
 const theme = getTheme();
 
@@ -18,7 +19,7 @@ class SongbookScreen extends Component {
     }
 
     _getArchiveData() {
-        fetch('http://oaza.tv/api/v2/songs/')
+        fetch(Constants.server + Constants.api + 'songs/')
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);

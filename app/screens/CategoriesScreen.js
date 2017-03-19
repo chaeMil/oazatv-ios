@@ -6,6 +6,7 @@ import StatusBarBackground from '../components/StatusBarBackground';
 import Category from '../model/Category';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
+import Constants from '../strings/Constants';
 
 let homeData = [];
 
@@ -23,7 +24,7 @@ class CategoriesScreen extends Component {
     }
 
     _getCategoriesData() {
-        fetch('http://oaza.tv/api/v2/categories?videos=0')
+        fetch(Constants.server + Constants.api + 'categories?videos=0')
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = [];

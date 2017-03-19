@@ -4,6 +4,7 @@ import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, Acti
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
+import Constants from '../strings/Constants';
 
 class ArchiveScreen extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class ArchiveScreen extends Component {
     }
 
     _getArchiveData(page) {
-        fetch('http://oaza.tv/api/v2/archive/' + page)
+        fetch(Constants.server + Constants.api + 'archive/' + page)
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = this.state.data;
