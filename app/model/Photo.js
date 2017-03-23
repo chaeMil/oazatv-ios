@@ -35,9 +35,12 @@ class Photo {
     }
 
     renderThumb() {
+        console.log(this.thumb256);
         return (
-            <Image source={this.thumb256}
-                   style={{margin: 3, width: 100, height: 1}} />
+            <View style={{backgroundColor: Colors.md_grey_500, margin: 3, width: 100, height: 100}}>
+                <Image source={{uri: this.thumb256}}
+                    style={{width: 100, height: 100}}/>
+            </View>
         );
     }
 }

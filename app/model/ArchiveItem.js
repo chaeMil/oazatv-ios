@@ -4,14 +4,15 @@ import LangUtils from '../utils/LangUtils';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
 import '../utils/Prototype';
+import Photo from './Photo';
 
 class ArchiveItem {
     constructor(input) {
         this.type = input.type;
-        if (input.type == "video") {
+        if (input.type === "video") {
             this.video = new Video(input);
         }
-        if (input.type == "album") {
+        if (input.type === "album") {
             this.album = new Album(input);
         }
     }
@@ -199,15 +200,13 @@ class Album {
         this.tags = input.tags.replace(/\s/g,'').split(",");
         this.descriptionCs = input.description_cs;
         this.descriptionEn = input.description_en;
+        this.photos = [];
 
         if (input.photos != null) {
-            let photos = [];
-            for (let i = 0; i < input.photos.size; i++) {
+            for (let i = 0; i < input.photos.length; i++) {
                 let photo = new Photo(input.photos[i]);
-                photos.add(photo);
+                this.photos.push(photo);
             }
-
-            this.photos = photos;
         }
     }
 

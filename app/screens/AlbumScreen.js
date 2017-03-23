@@ -8,7 +8,7 @@ import BaseScreen from '../screens/BaseScreen';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Photo from '../model/Photo';
-import Album from '../model/ArchiveItem';
+import {Album} from '../model/ArchiveItem';
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 
@@ -33,11 +33,11 @@ class AlbumScreen extends BaseScreen {
                 let dataSource = this.state.data;
                 let album = new Album(responseJson.album);
                 let newDataSource = album.getPhotos();
-                console.log(album);
                 dataSource.push.apply(dataSource, newDataSource);
 
                 this.setState({
                     data: dataSource,
+                    photosCount: album.getPhotos().length,
                     albumDataSource: this.state.albumDataSource.cloneWithRows(dataSource)
                 });
 
@@ -64,16 +64,17 @@ class AlbumScreen extends BaseScreen {
                         {backIcon}
                     </TouchableOpacity>
                 </View>
-                <ListView contentContainerStyle={{flexDirection: 'row', flexWrap: 'wrap'}}
+                <ListView contentContainerStyle={{flex: 1, padding: 3, flexDirection: 'row', flexWrap: 'wrap'}}
                           dataSource={this.state.albumDataSource}
-                          renderRow={(rowData) => this._renderRow(rowData)}
+                          pageSize={this.state.photosCount}
+                          enableEmptySections={true}
+                          renderRow={(photo) => this._renderRow(photo)}
                 />
             </ViewContainer>
         )
     }
 
-    _renderRow(rowData) {
-        let photo = Photo(rowData);
+    _renderRow(photo) {
         return photo.renderThumb();
     }
 
