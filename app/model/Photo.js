@@ -37,7 +37,7 @@ class Photo {
     renderThumb() {
         return (
             <Image source={this.thumb256}
-                   style={{margin: 3, width: 100}} />
+                   style={{margin: 3, width: 100, height: 1}} />
         );
     }
 }

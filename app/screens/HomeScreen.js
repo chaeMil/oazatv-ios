@@ -4,7 +4,7 @@ import {View, Image, Text, TextView, ListView, TouchableOpacity, ActivityIndicat
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import BaseScreen from '../screens/BaseScreen';
-import ArchiveItem from '../model/ArchiveItem';
+import {ArchiveItem, Album, Video} from '../model/ArchiveItem';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
 import Constants from '../strings/Constants';

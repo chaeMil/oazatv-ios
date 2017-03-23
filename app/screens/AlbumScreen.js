@@ -7,8 +7,8 @@ import Constants from '../strings/Constants';
 import BaseScreen from '../screens/BaseScreen';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
-import Album from '../model/Album';
 import Photo from '../model/Photo';
+import Album from '../model/ArchiveItem';
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 
@@ -31,8 +31,9 @@ class AlbumScreen extends BaseScreen {
             .then((response) => response.json())
             .then((responseJson) => {
                 let dataSource = this.state.data;
-                let album = Album(responseJson.album);
+                let album = new Album(responseJson.album);
                 let newDataSource = album.getPhotos();
+                console.log(album);
                 dataSource.push.apply(dataSource, newDataSource);
 
                 this.setState({

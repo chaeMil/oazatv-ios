@@ -199,6 +199,16 @@ class Album {
         this.tags = input.tags.replace(/\s/g,'').split(",");
         this.descriptionCs = input.description_cs;
         this.descriptionEn = input.description_en;
+
+        if (input.photos != null) {
+            let photos = [];
+            for (let i = 0; i < input.photos.size; i++) {
+                let photo = new Photo(input.photos[i]);
+                photos.add(photo);
+            }
+
+            this.photos = photos;
+        }
     }
 
     getName() {
@@ -211,6 +221,10 @@ class Album {
             default:
                 return this.nameEn;
         }
+    }
+
+    getPhotos() {
+        return this.photos;
     }
 
     getDate() {
@@ -241,4 +255,4 @@ class Album {
     }
 }
 
-module.exports = ArchiveItem;
+module.exports = {ArchiveItem, Video, Album};
