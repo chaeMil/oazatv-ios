@@ -72,6 +72,7 @@ class AppNavigator extends Component {
                 return (
                     <PhotosScreen
                         album={route.album}
+                        photoToShow={route.photoToShow}
                         oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />
                 );

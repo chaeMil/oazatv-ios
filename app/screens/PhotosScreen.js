@@ -14,6 +14,8 @@ class PhotosScreen extends BaseScreen {
 
     render() {
 
+        console.log(this.props.photoToShow);
+
         let pages = [];
 
         for (let i = 0; i < this.props.album.getPhotos().length; i++) {
@@ -26,6 +28,7 @@ class PhotosScreen extends BaseScreen {
             <ViewContainer>
                 <StatusBarBackground style={{backgroundColor: Colors.black}}/>
                 <IndicatorViewPager
+                    initialPage={this.props.photoToShow}
                     style={{flex:1, paddingTop:20, backgroundColor:'white'}}
                     indicator={this._renderDotIndicator()}>
                     {pages}
