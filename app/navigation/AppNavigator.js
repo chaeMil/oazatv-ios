@@ -8,6 +8,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryScreen from '../screens/CategoryScreen';
 import SongbookScreen from '../screens/SongbookScreen';
 import AlbumScreen from '../screens/AlbumScreen';
+import PhotosScreen from '../screens/PhotosScreen';
 
 class AppNavigator extends Component {
 
@@ -63,6 +64,13 @@ class AppNavigator extends Component {
             case "AlbumScreen":
                 return (
                     <AlbumScreen
+                        album={route.album}
+                        oazaApp={route.oazaApp}
+                        {...globalNavigatorProps} />
+                );
+            case "PhotosScreen":
+                return (
+                    <PhotosScreen
                         album={route.album}
                         oazaApp={route.oazaApp}
                         {...globalNavigatorProps} />

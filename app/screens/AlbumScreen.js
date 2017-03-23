@@ -41,7 +41,7 @@ class AlbumScreen extends BaseScreen {
                 let newDataSource = [];
                 newDataSource.push({type: "description", description: album.getDescription()});
                 for (let i = 0; i < album.getPhotos().length; i++) {
-                    newDataSource.push({type: "photo", photo: album.getPhotos()[i]});
+                    newDataSource.push({type: "photo", order: i, photo: album.getPhotos()[i]});
                 }
                 dataSource.push.apply(dataSource, newDataSource);
 
@@ -90,7 +90,15 @@ class AlbumScreen extends BaseScreen {
 
     _renderRow(rowData) {
         if (rowData.type === "photo") {
-            return rowData.photo.renderThumb();
+            let width = Dimensions.get('window').width / 3;
+
+            return (
+                <TouchableOpacity onPress={() => this._showPhoto(rowData.order)}
+                    style={{width: width, aspectRatio: 1}}>
+                    {rowData.photo.renderThumb()}
+                </TouchableOpacity>
+            );
+
         }
         if (rowData.type === "description") {
             let width = Dimensions.get('window').width;
@@ -101,6 +109,19 @@ class AlbumScreen extends BaseScreen {
                 </Text>
             );
         }
+    }
+
+    _showPhoto(photoToShow) {
+        this._hideTabBar();
+
+        this.props.navigator.push({
+            ident: "PhotosScreen",
+            oazaApp: this.props.oazaApp,
+            navigationBarHidden: true,
+            album: this.props.album,
+            photoToShow: photoToShow
+
+        })
     }
 
     _shareAlbum() {
