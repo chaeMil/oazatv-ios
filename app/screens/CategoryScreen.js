@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
+import BaseScreen from '../screens/BaseScreen';
 import StatusBarBackground from '../components/StatusBarBackground';
 import ArchiveItem from '../model/ArchiveItem';
 import Colors from '../styles/Colors';
@@ -10,7 +11,7 @@ import Constants from '../strings/Constants';
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 
-class CategoryScreen extends Component {
+class CategoryScreen extends BaseScreen {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -116,17 +117,6 @@ class CategoryScreen extends Component {
             case "album":
                 return archiveItem.album.renderArchiveItem();
         }
-    }
-
-    _goBack() {
-        this.props.navigator.pop();
-    }
-
-
-    _hideTabBar() {
-        this.props.oazaApp.setState({
-            tabBarBottomMargin: -49
-        });
     }
 
     _playVideo(video) {

@@ -3,10 +3,11 @@ import React,{Component} from 'react';
 import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
+import BaseScreen from '../screens/BaseScreen';
 import ArchiveItem from '../model/ArchiveItem';
 import Constants from '../strings/Constants';
 
-class ArchiveScreen extends Component {
+class ArchiveScreen extends BaseScreen {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -92,12 +93,6 @@ class ArchiveScreen extends Component {
             case "album":
                 return archiveItem.album.renderArchiveItem();
         }
-    }
-
-    _hideTabBar() {
-        this.props.oazaApp.setState({
-            tabBarBottomMargin: -49
-        });
     }
 
     _playVideo(video) {

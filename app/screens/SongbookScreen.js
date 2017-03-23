@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
+import BaseScreen from '../screens/BaseScreen';
 import StatusBarBackground from '../components/StatusBarBackground';
 import {getTheme} from 'react-native-material-kit';
 import Colors from '../styles/Colors';
@@ -9,7 +10,7 @@ import Constants from '../strings/Constants';
 
 const theme = getTheme();
 
-class SongbookScreen extends Component {
+class SongbookScreen extends BaseScreen {
     constructor(props) {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

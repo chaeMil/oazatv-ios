@@ -4,6 +4,7 @@ import {getTheme} from 'react-native-material-kit';
 import HTMLView from 'react-native-htmlview';
 import Share, {ShareSheet, Button} from 'react-native-share';
 import ViewContainer from '../components/ViewContainer'
+import BaseScreen from '../screens/BaseScreen';
 import StatusBarBackground from '../components/StatusBarBackground';
 import VideoPlayer from 'react-native-video-player';
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -17,11 +18,7 @@ const viewsIcon = (<Icon name="ios-eye-outline" size={30} color={Colors.primaryC
 const dateIcon = (<Icon name="ios-calendar-outline" size={30} color={Colors.primaryColor} />);
 const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primaryColor} />);
 
-        class VideoPlayerScreen extends Component {
-
-    componentDidMount() {
-        console.log(this.props);
-    }
+class VideoPlayerScreen extends BaseScreen {
 
     render() {
         let description = this.props.video.getDescription().toString();
@@ -109,17 +106,6 @@ const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primar
                 </ScrollView>
             </ViewContainer>
         )
-    }
-
-    _goBack() {
-        this._showTabBar();
-        this.props.navigator.pop();
-    }
-
-    _showTabBar() {
-          this.props.oazaApp.setState({
-            tabBarBottomMargin: 0
-        });
     }
 
     _shareVideo() {

@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
+import BaseScreen from '../screens/BaseScreen';
 import StatusBarBackground from '../components/StatusBarBackground';
 import Category from '../model/Category';
 import strings from '../strings/Locale';
@@ -10,7 +11,7 @@ import Constants from '../strings/Constants';
 
 let homeData = [];
 
-class CategoriesScreen extends Component {
+class CategoriesScreen extends BaseScreen {
     constructor(props) {
         super(props);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});

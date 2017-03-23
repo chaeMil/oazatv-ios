@@ -1,8 +1,9 @@
 'user strict'
 import React,{Component} from 'react';
-import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
+import {View, Image, Text, TextView, ListView, TouchableOpacity, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
+import BaseScreen from '../screens/BaseScreen';
 import ArchiveItem from '../model/ArchiveItem';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
@@ -10,10 +11,10 @@ import Constants from '../strings/Constants';
 
 let homeData = [];
 
-class HomeScreen extends Component {
+class HomeScreen extends BaseScreen {
     constructor(props) {
         super(props);
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
         this.state = {
             stickyHeaders: [],
             homeDataSource: ds.cloneWithRows(homeData)
@@ -95,6 +96,7 @@ class HomeScreen extends Component {
             <ViewContainer>
                 <StatusBarBackground/>
                 <ActivityIndicator
+                    refs="indicator"
                     style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
                 <ListView style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
                     stickyHeaderIndices={this.state.stickyHeaders}
@@ -107,7 +109,7 @@ class HomeScreen extends Component {
     }
 
     _renderRow(rowData) {
-        if (rowData.type == "header") {
+        if (rowData.type === "header") {
             return <View style={{paddingTop: 8, paddingBottom: 8, backgroundColor: Colors.appBg}}>
                 <Text style={{fontSize: 18, color: Colors.primaryColor}}>
                     {rowData.section}
@@ -119,20 +121,20 @@ class HomeScreen extends Component {
             switch (archiveItem.type) {
                 case "video":
                     return (
-                        <TouchableOpacity onPress={() => this._playVideo(archiveItem.video)}>
+                        <TouchableOpacity
+                            onPress={() => this._playVideo(archiveItem.video)}>
                             {archiveItem.video.renderArchiveItem()}
                         </TouchableOpacity>
                     );
                 case "album":
-                    return archiveItem.album.renderArchiveItem();
+                    return (
+                        <TouchableOpacity
+                            onPress={() => this._openAlbum(archiveItem.album)}>
+                            {archiveItem.album.renderArchiveItem()}
+                        </TouchableOpacity>
+                    );
             }
         }
-    }
-
-    _hideTabBar() {
-        this.props.oazaApp.setState({
-            tabBarBottomMargin: -49
-        });
     }
 
     _playVideo(video) {
@@ -144,6 +146,17 @@ class HomeScreen extends Component {
             navigationBarHidden: true,
             video
         })
+    }
+
+    _openAlbum(album) {
+        this._hideTabBar();
+
+        this.props.navigator.push({
+            ident: "AlbumScreen",
+            oazaApp: this.props.oazaApp,
+            navigatorBarHidden: true,
+            album
+        });
     }
 }
 
