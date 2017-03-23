@@ -1,6 +1,6 @@
 'user strict'
 import React,{Component} from 'react';
-import {View, Image, Text, TextView, ListView, TouchableOpacity, Navigator, ActivityIndicator} from 'react-native'
+import {View, Image, Text, TextView, ListView, TouchableOpacity, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import BaseScreen from '../screens/BaseScreen';
