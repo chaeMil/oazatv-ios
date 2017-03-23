@@ -60,11 +60,11 @@ class AlbumScreen extends BaseScreen {
                         </Text>
                     </View>
                     <TouchableOpacity onPress={() => this._goBack()}
-                                      style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
+                        style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
                         {backIcon}
                     </TouchableOpacity>
                 </View>
-                <ListView contentContainerStyle={{flex: 1, padding: 3, flexDirection: 'row', flexWrap: 'wrap'}}
+                <ListView contentContainerStyle={{padding: 0, flexDirection: 'row', flexWrap: 'wrap'}}
                           dataSource={this.state.albumDataSource}
                           pageSize={this.state.photosCount}
                           enableEmptySections={true}

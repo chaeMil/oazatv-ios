@@ -1,9 +1,11 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {View, Image, Text, TextView} from 'react-native'
 import LangUtils from '../utils/LangUtils';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
 import '../utils/Prototype';
+import Dimensions from 'Dimensions';
+
 
 class Photo {
     constructor(input) {
@@ -35,11 +37,12 @@ class Photo {
     }
 
     renderThumb() {
-        console.log(this.thumb256);
+        let width = Dimensions.get('window').width / 3;
+
         return (
-            <View style={{backgroundColor: Colors.md_grey_500, margin: 3, width: 100, height: 100}}>
+            <View style={{backgroundColor: Colors.md_grey_500, width: width, aspectRatio: 1}}>
                 <Image source={{uri: this.thumb256}}
-                    style={{width: 100, height: 100}}/>
+                    style={{flex: 1}}/>
             </View>
         );
     }
