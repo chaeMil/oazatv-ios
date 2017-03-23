@@ -24,7 +24,7 @@ class AlbumScreen extends BaseScreen {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             data: [],
-            albumDataSource: ds.cloneWithRows([]),
+            albumDataSource: ds.cloneWithRows([])
         };
     }
 
@@ -46,6 +46,7 @@ class AlbumScreen extends BaseScreen {
                 dataSource.push.apply(dataSource, newDataSource);
 
                 this.setState({
+                    album: album,
                     data: dataSource,
                     photosCount: album.getPhotos().length,
                     albumDataSource: this.state.albumDataSource.cloneWithRows(dataSource)
@@ -118,7 +119,7 @@ class AlbumScreen extends BaseScreen {
             ident: "PhotosScreen",
             oazaApp: this.props.oazaApp,
             navigationBarHidden: true,
-            album: this.props.album,
+            album: this.state.album,
             photoToShow: photoToShow
 
         })

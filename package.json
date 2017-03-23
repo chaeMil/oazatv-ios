@@ -19,7 +19,7 @@
     "react-native-vector-icons": "^4.0.0",
     "react-native-video": "^1.0.0",
     "react-native-video-player": "^0.6.1",
-    "react-native-viewpager": "^0.2.13"
+    "rn-viewpager": "^1.1.4"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
