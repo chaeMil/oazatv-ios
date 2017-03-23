@@ -9,8 +9,11 @@ import Share, {ShareSheet, Button} from 'react-native-share';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
 import {Album} from '../model/ArchiveItem';
+import Photo from '../model/Photo';
 import constants from '../strings/Constants'
 import strings from '../strings/Locale'
+import Dimensions from 'Dimensions';
+
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
 const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.white} />);
@@ -35,7 +38,11 @@ class AlbumScreen extends BaseScreen {
             .then((responseJson) => {
                 let dataSource = this.state.data;
                 let album = new Album(responseJson.album);
-                let newDataSource = album.getPhotos();
+                let newDataSource = [];
+                newDataSource.push({type: "description", description: album.getDescription()});
+                for (let i = 0; i < album.getPhotos().length; i++) {
+                    newDataSource.push({type: "photo", photo: album.getPhotos()[i]});
+                }
                 dataSource.push.apply(dataSource, newDataSource);
 
                 this.setState({
@@ -75,14 +82,25 @@ class AlbumScreen extends BaseScreen {
                           dataSource={this.state.albumDataSource}
                           pageSize={this.state.photosCount}
                           enableEmptySections={true}
-                          renderRow={(photo) => this._renderRow(photo)}
+                          renderRow={(rowData) => this._renderRow(rowData)}
                 />
             </ViewContainer>
         )
     }
 
-    _renderRow(photo) {
-        return photo.renderThumb();
+    _renderRow(rowData) {
+        if (rowData.type === "photo") {
+            return rowData.photo.renderThumb();
+        }
+        if (rowData.type === "description") {
+            let width = Dimensions.get('window').width;
+
+            return ( //TODO height
+                <Text style={{padding: 16, height: 200, width: width}}>
+                    {this.props.album.getDescription()}
+                </Text>
+            );
+        }
     }
 
     _shareAlbum() {

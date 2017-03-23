@@ -222,6 +222,24 @@ class Album {
         }
     }
 
+    getDescription() {
+        switch(LangUtils.getLocale()) {
+            case "en":
+                if (this.descriptionEn == "") {
+                    return this.descriptionCs;
+                }
+                return this.descriptionEn;
+            case "cs":
+            case "sk":
+                return this.descriptionCs;
+            default:
+                if (this.descriptionEn == "") {
+                    return this.descriptionCs;
+                }
+                return this.descriptionEn;
+        }
+    }
+
     getPhotos() {
         return this.photos;
     }

@@ -39,6 +39,8 @@ class Photo {
     renderThumb() {
         let width = Dimensions.get('window').width / 3;
 
+        console.log(this.thumb256);
+
         return (
             <TouchableOpacity style={{width: width, aspectRatio: 1}}>
                 <View style={{backgroundColor: Colors.md_grey_500, flex: 1}}>
