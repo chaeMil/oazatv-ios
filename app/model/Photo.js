@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, TextView} from 'react-native'
+import {View, Image, TouchableOpacity} from 'react-native'
 import LangUtils from '../utils/LangUtils';
 import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
@@ -40,10 +40,12 @@ class Photo {
         let width = Dimensions.get('window').width / 3;
 
         return (
-            <View style={{backgroundColor: Colors.md_grey_500, width: width, aspectRatio: 1}}>
-                <Image source={{uri: this.thumb256}}
-                    style={{flex: 1}}/>
-            </View>
+            <TouchableOpacity style={{width: width, aspectRatio: 1}}>
+                <View style={{backgroundColor: Colors.md_grey_500, flex: 1}}>
+                    <Image source={{uri: this.thumb256}}
+                        style={{flex: 1}}/>
+                </View>
+            </TouchableOpacity>
         );
     }
 }

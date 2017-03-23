@@ -16,7 +16,8 @@ let strings = new LocalizedStrings({
         "songbook": "Songbook",
         "search": "Search",
         "share": "share",
-        "shareVideoDialogTitle": "Share video"
+        "shareVideoDialogTitle": "Share video",
+        "shareAlbumDialogTitle": "Share album"
     },
     cs: {
         "appName": "Oáza.tv",
@@ -33,7 +34,8 @@ let strings = new LocalizedStrings({
         "songbook": "Zpěvník",
         "search": "Vyhledávání",
         "share": "sdílet",
-        "shareVideoDialogTitle": "Sdílet video"
+        "shareVideoDialogTitle": "Sdílet video",
+        "shareAlbumDialogTitle": "Sdílet album"
     }
 });
 

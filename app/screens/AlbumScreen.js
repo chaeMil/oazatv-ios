@@ -5,12 +5,15 @@ import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import Constants from '../strings/Constants';
 import BaseScreen from '../screens/BaseScreen';
+import Share, {ShareSheet, Button} from 'react-native-share';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
-import Photo from '../model/Photo';
 import {Album} from '../model/ArchiveItem';
+import constants from '../strings/Constants'
+import strings from '../strings/Locale'
 
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
+const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.white} />);
 
 class AlbumScreen extends BaseScreen {
     constructor(props) {
@@ -52,16 +55,20 @@ class AlbumScreen extends BaseScreen {
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground style={{backgroundColor: Colors.primaryColor}} />
-                <View style={{marginTop: 20, width: null, height: 40,
+                <View style={{marginTop: 20, width: null, height: 40, flexDirection: 'row', flexWrap: 'wrap',
                     backgroundColor: Colors.primaryColor}}>
-                    <View style={{alignItems: 'center', position: 'absolute', left: 0, right: 0}}>
-                        <Text style={{color: Colors.white, height: 40, lineHeight: 40, fontSize: 16}}>
-                            {this.props.album.getName()}
-                        </Text>
-                    </View>
                     <TouchableOpacity onPress={() => this._goBack()}
                         style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
                         {backIcon}
+                    </TouchableOpacity>
+                    <View style={{alignItems: 'center', flex: 1}}>
+                        <Text style={{color: Colors.white, height: 40, lineHeight: 40, fontSize: 14}}>
+                            {this.props.album.getName()}
+                        </Text>
+                    </View>
+                    <TouchableOpacity onPress={() => this._shareAlbum()}
+                                      style={{width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
+                        {shareIcon}
                     </TouchableOpacity>
                 </View>
                 <ListView contentContainerStyle={{padding: 0, flexDirection: 'row', flexWrap: 'wrap'}}
@@ -76,6 +83,16 @@ class AlbumScreen extends BaseScreen {
 
     _renderRow(photo) {
         return photo.renderThumb();
+    }
+
+    _shareAlbum() {
+        let shareOptions = {
+            title: strings.shareAlbumDialogTitle,
+            url: constants.albumShareLink + this.props.album.hash,
+            subject: this.props.album.nameCs + "｜" + this.props.album.nameEn
+        };
+
+        Share.open(shareOptions);
     }
 
 }
