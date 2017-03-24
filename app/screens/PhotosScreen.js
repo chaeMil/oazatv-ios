@@ -20,7 +20,8 @@ class PhotosScreen extends BaseScreen {
 
         for (let i = 0; i < this.props.album.getPhotos().length; i++) {
             let photo = this.props.album.getPhotos()[i];
-            let pageRender = this._renderPage(photo);
+            let item = {key: i, photo: photo};
+            let pageRender = this._renderPage(item);
             pages.push(pageRender);
         }
 
@@ -43,9 +44,10 @@ class PhotosScreen extends BaseScreen {
 
     _renderPage(pageData) {
         return (
-            <View style={{backgroundColor: Colors.black, flex: 1}}>
+            <View key={pageData.key}
+                  style={{backgroundColor: Colors.black, flex: 1}}>
                 <Image style={{flex: 1, resizeMode: 'contain'}}
-                       source={{uri: pageData.thumb2048}} />
+                       source={{uri: pageData.photo.thumb2048}} />
             </View>
         );
     }
