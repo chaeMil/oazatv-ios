@@ -46,9 +46,13 @@ class CategoriesScreen extends BaseScreen {
     }
 
     render() {
+
+        let toolbar = this._generateToolbar();
+
         return (
             <ViewContainer>
                 <StatusBarBackground/>
+                {toolbar}
                 <ListView style={{padding: 8}}
                     enableEmptySections={true}
                     dataSource={this.state.dataSource}

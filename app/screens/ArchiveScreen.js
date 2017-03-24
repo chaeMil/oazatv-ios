@@ -47,9 +47,13 @@ class ArchiveScreen extends BaseScreen {
     }
 
     render() {
+
+        let toolbar = this._generateToolbar();
+
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
+                {toolbar}
                 <ListView style={{flex: 1, padding: 8}}
                     enableEmptySections={true}
                     dataSource={this.state.archiveDataSource}
