@@ -27,6 +27,28 @@ class BaseScreen extends Component {
         });
     }
 
+    _playVideo(video) {
+        this._hideTabBar();
+
+        this.props.navigator.push({
+            ident: "VideoPlayerScreen",
+            oazaApp: this.props.oazaApp,
+            navigationBarHidden: true,
+            video
+        })
+    }
+
+    _openAlbum(album) {
+        this._hideTabBar();
+
+        this.props.navigator.push({
+            ident: "AlbumScreen",
+            oazaApp: this.props.oazaApp,
+            navigatorBarHidden: true,
+            album
+        });
+    }
+
     _generateToolbar() {
         return (
             <View style={{marginTop: 20, width: null, height: 40,

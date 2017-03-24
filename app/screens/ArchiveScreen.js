@@ -95,19 +95,12 @@ class ArchiveScreen extends BaseScreen {
                     </TouchableOpacity>
                 );
             case "album":
-                return archiveItem.album.renderArchiveItem();
+                return (
+                    <TouchableOpacity onPress={() => this._openAlbum(archiveItem.album)}>
+                        {archiveItem.album.renderArchiveItem()}
+                    </TouchableOpacity>
+                );
         }
-    }
-
-    _playVideo(video) {
-        this._hideTabBar();
-
-        this.props.navigator.push({
-            ident: "VideoPlayerScreen",
-            oazaApp: this.props.oazaApp,
-            navigationBarHidden: true,
-            video
-        })
     }
 }
 

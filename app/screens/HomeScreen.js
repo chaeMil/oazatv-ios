@@ -142,28 +142,6 @@ class HomeScreen extends BaseScreen {
             }
         }
     }
-
-    _playVideo(video) {
-        this._hideTabBar();
-
-        this.props.navigator.push({
-            ident: "VideoPlayerScreen",
-            oazaApp: this.props.oazaApp,
-            navigationBarHidden: true,
-            video
-        })
-    }
-
-    _openAlbum(album) {
-        this._hideTabBar();
-
-        this.props.navigator.push({
-            ident: "AlbumScreen",
-            oazaApp: this.props.oazaApp,
-            navigatorBarHidden: true,
-            album
-        });
-    }
 }
 
 module.exports = HomeScreen;
