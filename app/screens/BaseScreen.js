@@ -31,7 +31,8 @@ class BaseScreen extends Component {
         return (
             <View style={{marginTop: 20, width: null, height: 40,
                     flexDirection: 'row', flexWrap: 'wrap',
-                    backgroundColor: Colors.primaryColor}}>
+                    backgroundColor: Colors.primaryColor,
+                    zIndex: 500}}>
                 <View style={{flex: 1, flexDirection: 'row',
                         alignItems: 'center', justifyContent: 'center'}}>
                     <Image source={require('../../assets/icons/logo.png')}

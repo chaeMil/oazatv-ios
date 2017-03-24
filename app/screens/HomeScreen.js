@@ -102,7 +102,7 @@ class HomeScreen extends BaseScreen {
                 <ActivityIndicator
                     refs="indicator"
                     style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
-                <ListView style={{paddingTop: 0, paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
+                <ListView style={{marginTop: -20, paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
                     stickyHeaderIndices={this.state.stickyHeaders}
                     enableEmptySections={true}
                     pageSize={50}
@@ -114,11 +114,13 @@ class HomeScreen extends BaseScreen {
 
     _renderRow(rowData) {
         if (rowData.type === "header") {
-            return <View style={{paddingTop: 8, paddingBottom: 8, backgroundColor: Colors.appBg}}>
-                <Text style={{fontSize: 18, color: Colors.primaryColor}}>
-                    {rowData.section}
-                </Text>
-            </View>
+            return (
+                <View style={{paddingTop: 8, paddingBottom: 8, backgroundColor: Colors.appBg}}>
+                    <Text style={{fontSize: 18, color: Colors.primaryColor}}>
+                        {rowData.section}
+                    </Text>
+                </View>
+            );
         } else {
             let archiveItem = new ArchiveItem(rowData);
 

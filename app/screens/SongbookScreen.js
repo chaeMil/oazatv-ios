@@ -72,7 +72,7 @@ class SongbookScreen extends BaseScreen {
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
                 {toolbar}
-                <ListView style={{flex: 1, padding: 8}}
+                <ListView style={{flex: 1, padding: 8, marginTop: -20}}
                     enableEmptySections={true}
                     dataSource={this.state.songbookDataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}

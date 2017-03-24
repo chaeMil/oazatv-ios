@@ -53,7 +53,7 @@ class CategoriesScreen extends BaseScreen {
             <ViewContainer>
                 <StatusBarBackground/>
                 {toolbar}
-                <ListView style={{padding: 8}}
+                <ListView style={{marginTop: -20, padding: 8}}
                     enableEmptySections={true}
                     dataSource={this.state.dataSource}
                     renderRow={(rowData) => this._renderRow(rowData)}/>
