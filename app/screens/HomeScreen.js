@@ -1,6 +1,6 @@
 'user strict'
 import React,{Component} from 'react';
-import {View, Image, Text, TextView, ListView, TouchableOpacity, ActivityIndicator} from 'react-native'
+import {View, Image, Text, ListView, TouchableOpacity, ActivityIndicator} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import BaseScreen from '../screens/BaseScreen';
@@ -95,6 +95,19 @@ class HomeScreen extends BaseScreen {
         return (
             <ViewContainer>
                 <StatusBarBackground/>
+                <View style={{marginTop: 20, width: null, height: 40,
+                    flexDirection: 'row', flexWrap: 'wrap',
+                    backgroundColor: Colors.primaryColor}}>
+                    <View style={{flex: 1, flexDirection: 'row',
+                        alignItems: 'center', justifyContent: 'center'}}>
+                        <Image source={require('../../assets/icons/logo.png')}
+                               style={{width: 25, height: 25, marginRight: 8}}/>
+                        <Text style={{fontSize: 18, color: Colors.white}}>
+                            {strings.appName}
+                        </Text>
+                    </View>
+
+                </View>
                 <ActivityIndicator
                     refs="indicator"
                     style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
