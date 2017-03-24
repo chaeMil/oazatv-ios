@@ -102,7 +102,7 @@ class HomeScreen extends BaseScreen {
                 <ActivityIndicator
                     refs="indicator"
                     style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
-                <ListView style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
+                <ListView style={{paddingTop: 0, paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
                     stickyHeaderIndices={this.state.stickyHeaders}
                     enableEmptySections={true}
                     pageSize={50}

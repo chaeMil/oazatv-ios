@@ -4,7 +4,7 @@ import {View, Image, Text, TextView, ListView, TouchableOpacity, ActivityIndicat
 import ViewContainer from '../components/ViewContainer'
 import BaseScreen from '../screens/BaseScreen';
 import StatusBarBackground from '../components/StatusBarBackground';
-import ArchiveItem from '../model/ArchiveItem';
+import {ArchiveItem} from '../model/ArchiveItem';
 import Colors from '../styles/Colors';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Constants from '../strings/Constants';
