@@ -90,6 +90,7 @@ class AppNavigator extends Component {
                     initialRoute: this.props.initialRoute,
                     oazaApp: this.props.oazaApp
                 }}
+                gestures={null}
                 ref="appNavigator"
                 style={styles.navigatorStyles}
                 renderScene={this._renderScene} />

@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-native-localization';
 
 let strings = new LocalizedStrings({
     en: {
+        "locale": "en",
         "appName": "Oáza.tv",
         "views": "views",
         "english": "english",
@@ -20,6 +21,7 @@ let strings = new LocalizedStrings({
         "shareAlbumDialogTitle": "Share album"
     },
     cs: {
+        "locale": "cs",
         "appName": "Oáza.tv",
         "views": "zhlédnutí",
         "english": "anglicky",
