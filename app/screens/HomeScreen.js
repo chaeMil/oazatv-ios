@@ -16,6 +16,7 @@ class HomeScreen extends BaseScreen {
         super(props);
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
         this.state = {
+            isLoading: true,
             stickyHeaders: [],
             homeDataSource: ds.cloneWithRows(homeData)
         }
@@ -80,6 +81,7 @@ class HomeScreen extends BaseScreen {
                 }
 
                 this.setState({
+                    isLoading: false,
                     data: dataSource,
                     stickyHeaders: stickyHeaders,
                     homeDataSource: this.state.homeDataSource.cloneWithRows(dataSource),
@@ -94,14 +96,20 @@ class HomeScreen extends BaseScreen {
     render() {
 
         let toolbar = this._generateToolbar();
+        let activityIndicator = null;
+        if (this.state.isLoading) {
+            activityIndicator = (
+                <ActivityIndicator
+                    refs="indicator"
+                    style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
+            );
+        }
 
         return (
             <ViewContainer>
                 <StatusBarBackground/>
                 {toolbar}
-                <ActivityIndicator
-                    refs="indicator"
-                    style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
+                {activityIndicator}
                 <ListView style={{marginTop: -20, paddingLeft: 8, paddingRight: 8, paddingBottom: 8}}
                     stickyHeaderIndices={this.state.stickyHeaders}
                     enableEmptySections={true}
