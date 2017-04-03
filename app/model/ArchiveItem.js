@@ -48,8 +48,10 @@ class Video {
         this.descriptionCs = input.description_cs;
         this.descriptionEn = input.description_en;
         this.metadata = [];
-        this.metadata.durationInSeconds = input.metadata.duration_in_seconds;
-        this.metadata.durationString = input.metadata.duration_string;
+        if (input.metadata != null) {
+            this.metadata.durationInSeconds = input.metadata.duration_in_seconds;
+            this.metadata.durationString = input.metadata.duration_string;
+        }
     }
 
     getServerId() {
