@@ -13,6 +13,7 @@ class ArchiveScreen extends BaseScreen {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             loading: false,
+            canLoadMore: true,
             currentPage: 1,
             data: [],
             archiveDataSource: ds.cloneWithRows([]),
@@ -27,13 +28,20 @@ class ArchiveScreen extends BaseScreen {
                 let newDataSource = responseJson.archive;
                 dataSource.push.apply(dataSource, newDataSource);
 
-                this.setState({
-                    data: dataSource,
-                    archiveDataSource: this.state.archiveDataSource.cloneWithRows(dataSource),
-                    currentPage: page,
-                });
+                if (responseJson.archive == null) {
+                    this.setstate({
+                        canLoadMore: false,
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        data: dataSource,
+                        archiveDataSource: this.state.archiveDataSource.cloneWithRows(dataSource),
+                        currentPage: page,
+                    });
 
-                setTimeout(() => {this.setState({loading: false})}, 1000);
+                    setTimeout(() => {this.setState({loading: false})}, 1000);
+                }
 
             })
             .catch((error) => {
@@ -81,7 +89,11 @@ class ArchiveScreen extends BaseScreen {
     }
 
     _renderFooter() {
-        return <ActivityIndicator style={{margin: 12}}/>;
+        if (this.state.canLoadMore) {
+            return <ActivityIndicator style={{margin: 12}}/>;
+        } else {
+            return null;
+        }
     }
 
     _renderRow(rowData) {

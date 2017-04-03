@@ -60,7 +60,7 @@ class BaseScreen extends Component {
                     <Image source={require('../../assets/icons/logo.png')}
                            style={{width: 25, height: 25, marginRight: 8}}/>
                     <Text style={{fontSize: 18, color: Colors.white}}>
-                        {strings.appName}
+                        {strings.appName} [alpha]
                     </Text>
                 </View>
 

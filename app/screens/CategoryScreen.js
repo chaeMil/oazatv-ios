@@ -17,6 +17,7 @@ class CategoryScreen extends BaseScreen {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             loading: false,
+            canLoadMore: true,
             currentPage: 0,
             perPage: 16,
             category: null,
@@ -38,13 +39,20 @@ class CategoryScreen extends BaseScreen {
                 let newDataSource = responseJson.categories.videos;
                 dataSource.push.apply(dataSource, newDataSource);
 
-                this.setState({
-                    data: dataSource,
-                    categoryDataSource: this.state.categoryDataSource.cloneWithRows(dataSource),
-                    currentPage: page,
-                });
+                if (responseJson.categories.videos == null) {
+                    this.setState({
+                        canLoadMore: false,
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        data: dataSource,
+                        categoryDataSource: this.state.categoryDataSource.cloneWithRows(dataSource),
+                        currentPage: page,
+                    });
 
-                setTimeout(() => {this.setState({loading: false})}, 1000);
+                    setTimeout(() => {this.setState({loading: false})}, 1000);
+                }
 
             })
             .catch((error) => {
@@ -101,7 +109,11 @@ class CategoryScreen extends BaseScreen {
     }
 
     _renderFooter() {
-        return <ActivityIndicator style={{margin: 12}}/>;
+        if (this.state.canLoadMore) {
+            return <ActivityIndicator style={{margin: 12}}/>;
+        } else {
+            return null;
+        }
     }
 
     _renderRow(rowData) {
