@@ -23,7 +23,6 @@ class SongbookScreen extends BaseScreen {
         fetch(Constants.server + Constants.api + 'songs/')
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson);
 
                 let dataSource = [];
 
@@ -31,8 +30,6 @@ class SongbookScreen extends BaseScreen {
                     let section = responseJson.songs[i];
                     let item = {type: "section", tag: section['tag']};
                     dataSource.push(item);
-
-                    console.log(section);
 
                     for(let y = 0; y < section.songs.length; y++) {
                         let song = section.songs[y];
@@ -111,7 +108,7 @@ class SongbookScreen extends BaseScreen {
 
         if (rowData.type == "song") {
             return (
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._showSong(rowData.id)}>
                     <View style={{padding: 8}}>
                         <View style={theme.cardStyle}>
                             <View style={{padding: 16, flex: 1, flexDirection: 'row'}}>

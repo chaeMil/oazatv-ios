@@ -49,6 +49,17 @@ class BaseScreen extends Component {
         });
     }
 
+    _showSong(id) {
+        this._hideTabBar();
+
+        this.props.navigator.push({
+            ident: "SongScreen",
+            oazaApp: this.props.oazaApp,
+            navigatorBarHidden: true,
+            id
+        });
+    }
+
     _generateToolbar() {
         return (
             <View style={{marginTop: 20, width: null, height: 40,
@@ -66,6 +77,12 @@ class BaseScreen extends Component {
 
             </View>
         );
+    }
+
+    _decodeHTMLEntities(str) {
+        return str.replace(/&#(\d+);/g, function(match, dec) {
+            return String.fromCharCode(dec);
+        });
     }
 
 }

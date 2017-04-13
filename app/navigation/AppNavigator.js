@@ -10,6 +10,7 @@ import SongbookScreen from '../screens/SongbookScreen';
 import AlbumScreen from '../screens/AlbumScreen';
 import PhotosScreen from '../screens/PhotosScreen';
 import SearchScreen from '../screens/SearchScreen';
+import SongScreen from '../screens/SongScreen';
 
 class AppNavigator extends Component {
 
@@ -81,6 +82,13 @@ class AppNavigator extends Component {
                 return (
                     <SearchScreen
                         oazaApp={route.oazaApp}
+                        {...globalNavigatorProps} />
+                );
+            case "SongScreen":
+                return (
+                    <SongScreen
+                        oazaApp={route.oazaApp}
+                        songId={route.id}
                         {...globalNavigatorProps} />
                 );
             default:
