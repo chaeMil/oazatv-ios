@@ -10,11 +10,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator} from 'rn-viewpager';
 import {Album} from '../model/ArchiveItem';
 
+const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
+
 class PhotosScreen extends BaseScreen {
 
     render() {
-
-        console.log(this.props.photoToShow);
 
         let pages = [];
 
@@ -28,14 +28,24 @@ class PhotosScreen extends BaseScreen {
         return (
             <ViewContainer>
                 <StatusBarBackground style={{backgroundColor: Colors.black}}/>
+                <TouchableOpacity onPress={() => this.goBack()}
+                    style={{position: 'absolute', top: 20, left: 0, zIndex: 10, backgroundColor: Colors.black,
+                        width: 40, height: 40, alignItems: 'center', justifyContent: 'center'}}>
+                    {backIcon}
+                </TouchableOpacity>
                 <IndicatorViewPager
                     initialPage={this.props.photoToShow}
-                    style={{flex:1, paddingTop:20, backgroundColor:'white'}}
+                    style={{flex:1, backgroundColor:'white'}}
                     indicator={this._renderDotIndicator()}>
                     {pages}
                 </IndicatorViewPager>
             </ViewContainer>
         );
+    }
+
+    goBack() {
+        this._goBack();
+        this._hideTabBar();
     }
 
     _renderDotIndicator() {

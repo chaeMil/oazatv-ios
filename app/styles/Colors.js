@@ -8,4 +8,5 @@ module.exports = {
     md_grey_800: "#424242",
     appBg: "#FAFAFA",
     black: "#000000",
+    transparent: "#FFFFFFFF"
 };
