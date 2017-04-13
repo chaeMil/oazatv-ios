@@ -46,6 +46,20 @@ class VideoPlayerScreen extends BaseScreen {
             tags += "#" + this.props.video.getTags()[i] + " ";
         }
 
+        let playerStyle = StyleSheet.create({
+            video: {
+                backgroundColor: Colors.black,
+                height: Dimensions.get('window').width * 0.5625 ,
+                width: null
+            },
+            seekBarProgress: {
+                backgroundColor: Colors.primaryColor
+            },
+            seekBarKnob: {
+                backgroundColor: Colors.primaryColor
+            }
+        });
+
         return (
             <ViewContainer style={{flex: 1}}>
                 <StatusBarBackground/>
@@ -65,9 +79,7 @@ class VideoPlayerScreen extends BaseScreen {
                     video={{uri: this.props.video.getMp4FileLowRes()}}
                     thumbnail={{uri: this.props.video.getThumbFile()}}
                     duration={this.props.video.getDuration()}
-                    style={{backgroundColor: Colors.black,
-                        height: Dimensions.get('window').width * 0.5625 ,
-                        width: null}}/>
+                    customStyles={playerStyle}/>
                 <ScrollView>
                     <View style={{padding: 8}}>
                         <View style={theme.cardStyle}>
@@ -124,13 +136,15 @@ class VideoPlayerScreen extends BaseScreen {
     }
 
     _sendView() {
-        fetch(Constants.server + Constants.api + 'video/' + this.props.video.getHash() + '/count-view')
-            .then((response) => response)
-            .then((response) => {
-                console.log(response);
-            }).catch((error) => {
+        if (!Constants.DEV) {
+            fetch(Constants.server + Constants.api + 'video/' + this.props.video.getHash() + '/count-view')
+                .then((response) => response)
+                .then((response) => {
+                    console.log(response);
+                }).catch((error) => {
                 console.log(error);
             });
+        }
     }
 }
 

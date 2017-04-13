@@ -6,6 +6,7 @@ import StatusBarBackground from '../components/StatusBarBackground';
 import BaseScreen from '../screens/BaseScreen';
 import {ArchiveItem} from '../model/ArchiveItem';
 import Constants from '../strings/Constants';
+import strings from '../strings/Locale';
 
 class SearchScreen extends BaseScreen {
     constructor(props) {
@@ -75,6 +76,7 @@ class SearchScreen extends BaseScreen {
                 <TextInput
                     style={{margin: 8, padding: 8, borderRadius: 4, height: 40, borderColor: 'gray', borderWidth: 1}}
                     onSubmitEditing={(text) => this._getSearchData(text.nativeEvent.text)}
+                    placeholder={strings.search + '...'}
                     value={this.state.text}/>
                 {activityIndicator}
                 {searchList}

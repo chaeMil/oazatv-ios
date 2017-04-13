@@ -49,6 +49,7 @@
 		9898B594A82B46219AC8DB87 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7EC588DFC749E2B64CB92B /* libRNVectorIcons.a */; };
 		A2BF4AB5C963405C8F0A2082 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B7A770F7D40029D0A70AF /* libRNShare.a */; };
 		A2E55765B6D74DE392A256F0 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FF111B11CFA4EDFA1C0B8E1 /* Zocial.ttf */; };
+		A568F0C3CDDF455392BA3AC0 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A678D769574FAB99984A1E /* libSplashScreen.a */; };
 		A83C0DC67C104E51BB522BE3 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E3F1092E7471ABF3992DF /* EvilIcons.ttf */; };
 		B355537B6F894BF587A64F94 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200376D91B03472EB655B28F /* libcxxreact.a */; };
 		C5129FA24E324AFAA554D5E5 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8546EB54AE6740C182B9F4FE /* libReact.a */; };
@@ -247,6 +248,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		FA2238F01E9FDC2B0027A534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DC232478A8D4BDE8514E4BD /* SplashScreen.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D7682761D8E76B80014119E;
+			remoteInfo = SplashScreen;
+		};
 		FA44DC611E8566AA004F467D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CC55A4C97A21405C853F9E4A /* RCTMaterialKit.xcodeproj */;
@@ -308,8 +316,10 @@
 		00E356EE1AD99517003FC87E /* oazatvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oazatvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* oazatvTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oazatvTests.m; sourceTree = "<group>"; };
+		07A678D769574FAB99984A1E /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		0BE33F11F9264349ACB4CE3D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		0D897E9132DB4AC4BBA36DB1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		0DC232478A8D4BDE8514E4BD /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* oazatv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oazatv.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +393,7 @@
 				A2BF4AB5C963405C8F0A2082 /* libRNShare.a in Frameworks */,
 				9898B594A82B46219AC8DB87 /* libRNVectorIcons.a in Frameworks */,
 				572A8941D9C34153A9A1C820 /* libRCTVideo.a in Frameworks */,
+				A568F0C3CDDF455392BA3AC0 /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +566,7 @@
 				18EFD605916C41BF9B22AF5B /* RNShare.xcodeproj */,
 				446135C3C55940829DF98424 /* RNVectorIcons.xcodeproj */,
 				23D8A912873F452A9C0D8C61 /* RCTVideo.xcodeproj */,
+				0DC232478A8D4BDE8514E4BD /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -607,6 +619,14 @@
 				8FF111B11CFA4EDFA1C0B8E1 /* Zocial.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		FA2238CD1E9FDC2B0027A534 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA2238F11E9FDC2B0027A534 /* libSplashScreen.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FA44DC4C1E8566AA004F467D /* Products */ = {
@@ -841,6 +861,10 @@
 					ProductGroup = FA44DC541E8566AA004F467D /* Products */;
 					ProjectRef = 446135C3C55940829DF98424 /* RNVectorIcons.xcodeproj */;
 				},
+				{
+					ProductGroup = FA2238CD1E9FDC2B0027A534 /* Products */;
+					ProjectRef = 0DC232478A8D4BDE8514E4BD /* SplashScreen.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1026,6 +1050,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA2238F11E9FDC2B0027A534 /* libSplashScreen.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSplashScreen.a;
+			remoteRef = FA2238F01E9FDC2B0027A534 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		FA44DC621E8566AA004F467D /* libRCTMaterialKit.a */ = {
@@ -1240,6 +1271,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1261,6 +1293,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1344,6 +1377,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1373,6 +1407,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1419,6 +1454,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.oazatv-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1443,6 +1479,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
