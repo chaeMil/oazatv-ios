@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Colors from '../styles/Colors'
 import constants from '../strings/Constants'
 import strings from '../strings/Locale'
+import Constants from '../strings/Constants';
 
 const theme = getTheme();
 const backIcon = (<Icon name="ios-arrow-back" size={30} color={Colors.white} />);
@@ -19,6 +20,10 @@ const dateIcon = (<Icon name="ios-calendar-outline" size={30} color={Colors.prim
 const shareIcon = (<Icon name="ios-share-outline" size={30} color={Colors.primaryColor} />);
 
 class VideoPlayerScreen extends BaseScreen {
+
+    componentDidMount() {
+        this._sendView();
+    }
 
     render() {
         let description = this.props.video.getDescription().toString();
@@ -116,6 +121,16 @@ class VideoPlayerScreen extends BaseScreen {
         };
 
         Share.open(shareOptions);
+    }
+
+    _sendView() {
+        fetch(Constants.server + Constants.api + 'video/' + this.props.video.getHash() + '/count-view')
+            .then((response) => response)
+            .then((response) => {
+                console.log(response);
+            }).catch((error) => {
+                console.log(error);
+            });
     }
 }
 
