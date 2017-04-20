@@ -9,14 +9,14 @@ import strings from '../strings/Locale';
 import Colors from '../styles/Colors';
 import Constants from '../strings/Constants';
 
-let homeData = [];
+let categoriesData = [];
 
 class CategoriesScreen extends BaseScreen {
     constructor(props) {
         super(props);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
         this.state = {
-            dataSource: ds.cloneWithRows(homeData)
+            dataSource: ds.cloneWithRows(categoriesData)
         }
     }
 

@@ -1,6 +1,6 @@
 'user strict'
 import React,{Component} from 'react';
-import {View, Image, Text, TextView, ListView, TouchableOpacity} from 'react-native'
+import {Platform, View, Image, Text, TextView, ListView, TouchableOpacity} from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground';
 import Constants from '../strings/Constants';
@@ -61,22 +61,34 @@ class BaseScreen extends Component {
     }
 
     _generateToolbar() {
-        return (
-            <View style={{marginTop: 20, width: null, height: 40,
+
+        if (Platform.OS === 'ios') {
+            return (
+                <View style={{marginTop: 20, width: null, height: 40,
                     flexDirection: 'row', flexWrap: 'wrap',
                     backgroundColor: Colors.primaryColor,
                     zIndex: 500}}>
-                <View style={{flex: 1, flexDirection: 'row',
+                    <View style={{flex: 1, flexDirection: 'row',
                         alignItems: 'center', justifyContent: 'center'}}>
-                    <Image source={require('../../assets/icons/logo.png')}
-                           style={{width: 25, height: 25, marginRight: 8}}/>
-                    <Text style={{fontSize: 18, color: Colors.white}}>
-                        {strings.appName} [alpha]
-                    </Text>
-                </View>
+                        <Image source={require('../../assets/icons/logo.png')}
+                               style={{width: 25, height: 25, marginRight: 8}}/>
+                        <Text style={{fontSize: 18, color: Colors.white}}>
+                            {strings.appName} [alpha]
+                        </Text>
+                    </View>
 
-            </View>
-        );
+                </View>
+            );
+        }
+
+        if (Platform.OS === 'android') {
+            return (
+                <View style={{height: 60}} />
+            );
+        }
+
+        return null;
+
     }
 
     _decodeHTMLEntities(str) {
