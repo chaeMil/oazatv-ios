@@ -77,7 +77,7 @@ export default class OazaApp extends Component {
         }
 
         return (
-            <ViewContainer style={{flex: 1, height: null, marginTop: 0, marginBottom: -49}}>
+            <ViewContainer style={{flex: 1, height: null, marginTop: -20, marginBottom: -49}}>
                 {scene}
             </ViewContainer>
         );
