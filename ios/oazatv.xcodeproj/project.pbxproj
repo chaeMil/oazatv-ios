@@ -54,6 +54,7 @@
 		E104AEA8397A4DAFB4777398 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B21B307C72342BDA232E531 /* EvilIcons.ttf */; };
 		F130E296A86F40B6BABAFAF6 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9EB2FF3ED6140C693484BFC /* MaterialIcons.ttf */; };
 		F179609F0DBA4FE7882B2CCE /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0865D3D5372F49F2B509C6C2 /* libjschelpers.a */; };
+		FA10053A1EAFFD9B00738310 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1005391EAFFD9B00738310 /* Foundation.framework */; };
 		FC062AF34C3A4AEF977967D6 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB4ACE55CB646998F221153 /* libRNVectorIcons.a */; };
 /* End PBXBuildFile section */
 
@@ -348,6 +349,7 @@
 		D3D8FCA23D684B7F8234AE2C /* libReactNativeLocalization.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeLocalization.a; sourceTree = "<group>"; };
 		E22A2FB1AD9F42BBA4C095D6 /* libRCTMaterialKit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTMaterialKit.a; sourceTree = "<group>"; };
 		EC6CF6197FDB4B49B82E132F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		FA1005391EAFFD9B00738310 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA10053A1EAFFD9B00738310 /* Foundation.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -593,6 +596,7 @@
 				00E356EF1AD99517003FC87E /* oazatvTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2E1670FD9AB44A718EC3F439 /* Resources */,
+				FA1005381EAFFD9B00738310 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -607,6 +611,14 @@
 				2D02E4901E0B4A5D006451C7 /* oazatv-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FA1005381EAFFD9B00738310 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA1005391EAFFD9B00738310 /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FA935F841EA8FD1F0089FA9A /* Products */ = {
@@ -1288,6 +1300,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = D855D7MWDT;
 				INFOPLIST_FILE = oazatv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1307,6 +1320,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D855D7MWDT;
 				INFOPLIST_FILE = oazatv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

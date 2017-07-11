@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "infinite-scroll-x": "git+https://github.com/rborn/infinite-scroll-react-native.git",
+    "momentjs": "^2.0.0",
     "react": "15.4.2",
     "react-native": "0.41.2",
     "react-native-htmlview": "^0.5.0",

@@ -1,4 +1,6 @@
 import React,{Component} from 'react';
+import moment from 'moment';
+import * as locales from 'moment/min/locales';
 import {View, Image, Text, TextView} from 'react-native'
 import LangUtils from '../utils/LangUtils';
 import strings from '../strings/Locale';
@@ -105,7 +107,8 @@ class Video {
     }
 
     getDate() {
-        return this.date;
+        let date = moment(this.date);
+        return date.locale(LangUtils.getLocale()).format('LL');
     }
 
     getViews() {
