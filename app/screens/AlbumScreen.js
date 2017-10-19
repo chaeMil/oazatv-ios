@@ -105,7 +105,7 @@ class AlbumScreen extends BaseScreen {
             let width = Dimensions.get('window').width;
 
             return ( //TODO height
-                <Text style={{padding: 16, height: 200, width: width}}>
+                <Text style={{padding: 0, height: 0, width: width}}>
                     {this.props.album.getDescription()}
                 </Text>
             );
