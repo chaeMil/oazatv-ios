@@ -1332,7 +1332,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tv.oaza.app.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = tv.oaza.ios.app;
 				PRODUCT_NAME = oazatv;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1354,7 +1354,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tv.oaza.app.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = tv.oaza.ios.app;
 				PRODUCT_NAME = oazatv;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
